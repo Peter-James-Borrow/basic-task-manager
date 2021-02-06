@@ -11,9 +11,23 @@ function addToList(e, paragraph) {
     paragraph.innerHTML = inputField.value;
     paragraph.classList.add('special');
     list.appendChild(paragraph);
+    
+    const newInput = document.createElement('div');
+    newInput.innerHTML = `
+    <label for="input">Enter Tasks Here:</label>
+    <input type="text" class="text" name="text-box2" placeholder="make a list">
+    <button class="add">Add Task</button>
+    <button class="delete">Delete Task</button>
+    `;
+    list.appendChild(newInput);
+
+
+
 }
-addTask.forEach(function(additem) {
-    additem.addEventListener('click', addToList);
+
+    addTask.addEventListener('click', addToList);
+
+
     
     
     function deleteItem(removeItem) {
@@ -22,11 +36,8 @@ addTask.forEach(function(additem) {
     removeItem.remove();
     console.log('got clicked');
 }
-   
-deleteTask.forEach(button => {
-    button.addEventListener('click', deleteItem);
-})
-});
+
+    deleteTask.addEventListener('click', deleteItem);
 
 
 
